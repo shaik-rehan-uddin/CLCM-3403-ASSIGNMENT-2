@@ -2,13 +2,14 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from data_handler import add_task
 from view_tasks import view_tasks
+from datetime import date
 
 
 # Main function to run the Streamlit app
 def main():
     st.title("Task Management App")
 
-    menu_options = ["Add Task", "View Tasks"]
+    menu_options = ["Add New Task", "View Tasks"]
 
     if st.session_state.get("add_task", False):
         st.session_state["menu_option"] = 1
@@ -29,11 +30,11 @@ def main():
     )
     navbar
 
-    if navbar == "Add Task":
+    if navbar == "Add New Task":
         name = st.text_input("Task Name")
         description = st.text_area("Task Description")
         priority = st.selectbox("Priority", ["Low", "Medium", "High"])
-        due_date = st.date_input("Due Date")
+        due_date = st.date_input("Due Date", min_value=date.today())
         if st.button("Add Task", key="add_task"):
             add_task(name, description, priority, due_date)
             st.success("Task added successfully!")
