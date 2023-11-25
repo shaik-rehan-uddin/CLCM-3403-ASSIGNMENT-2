@@ -10,3 +10,13 @@ cd CLCM-3403-ASSIGNMENT-2
 pip install -r requirements.txt
 streamlit run main.py
 ```
+
+## Demo
+
+![](./images/1.png)
+
+![](./images/2.png)
+
+![](./images/3.png)
+
+![](./images/4.png)
